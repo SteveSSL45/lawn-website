@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talon's Full service Lawn Care- Full Service Lawn Maintenance</title>
-    <!-- FullCalendar CSS from CDN -->
+    <title>Talon's Full Service Lawn Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Global Styles */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -17,42 +15,54 @@
             background: url('https://images.pexels.com/photos/4495792/pexels-photo-4495792.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1080&w=1920') no-repeat center/cover fixed;
             color: #333;
         }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        /* Header */
+        a { text-decoration: none; color: inherit; }
         header {
-            background-color: #228B22; /* Forest Green */
-            color: white;
-            padding: 20px;
+            background-color: #90EE90; /* Light green */
+            color: #006400; /* Dark green text */
+            padding: 15px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         header h1 {
-            margin: 0;
-            font-size: 2.5em;
+            margin: 0 0 8px;
+            font-size: 2em; /* Smaller heading */
+            font-family: 'Roboto Slab', serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: white; /* White text */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Shadow behind text */
         }
         nav ul {
             list-style: none;
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
         nav ul li a {
-            color: white;
+            color: #006400;
             font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            font-size: 1em;
+            padding: 8px 20px;
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 50px; /* Round buttons */
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         nav ul li a:hover {
-            background-color: #006400; /* Dark Green */
+            background-color: white;
+            transform: scale(1.05);
         }
-        /* Hero Section */
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.5em; }
+            nav ul { gap: 10px; }
+            nav ul li a { padding: 6px 15px; font-size: 0.9em; }
+        }
+        /* Rest of styles unchanged */
         #hero {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/4495792/pexels-photo-4495792.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1080&w=1920') no-repeat center/cover;
             height: 600px;
@@ -64,37 +74,26 @@
             color: white;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-        #hero h2 {
-            font-size: 3em;
-            margin: 0;
-        }
-        #hero p {
-            font-size: 1.5em;
-        }
+        #hero h2 { font-size: 3em; margin: 0; }
+        #hero p { font-size: 1.5em; }
         .btn {
-            background-color: #228B22;
-            color: white;
+            background-color: #90EE90;
+            color: #006400;
             padding: 15px 30px;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-size: 1.2em;
             cursor: pointer;
             transition: background-color 0.3s;
             margin-top: 20px;
         }
-        .btn:hover {
-            background-color: #006400;
-        }
-        /* Services Section */
+        .btn:hover { background-color: #228B22; }
         #services {
             padding: 50px 20px;
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent for readability */
+            background-color: rgba(255, 255, 255, 0.9);
         }
-        #services h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-        }
+        #services h2 { font-size: 2.5em; margin-bottom: 40px; }
         .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -107,42 +106,22 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s;
         }
-        .service-item:hover {
-            transform: translateY(-10px);
-        }
-        .service-item i {
-            font-size: 3em;
-            color: #228B22;
-            margin-bottom: 10px;
-        }
-        .service-item h3 {
-            font-size: 1.8em;
-        }
-        /* Quote Section */
+        .service-item:hover { transform: translateY(-10px); }
+        .service-item i { font-size: 3em; color: #228B22; margin-bottom: 10px; }
+        .service-item h3 { font-size: 1.8em; }
         #quote {
             padding: 50px 20px;
-            background-color: rgba(224, 247, 224, 0.9); /* Semi-transparent for readability */
+            background-color: rgba(224, 247, 224, 0.9);
             text-align: center;
         }
-        #quote h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-        }
-        /* Calendar Section */
+        #quote h2 { font-size: 2.5em; margin-bottom: 40px; }
         #calendar-section {
             padding: 50px 20px;
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent for readability */
+            background-color: rgba(255, 255, 255, 0.9);
             text-align: center;
         }
-        #calendar-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-        }
-        #calendar {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        /* Modal Styles */
+        #calendar-section h2 { font-size: 2.5em; margin-bottom: 40px; }
+        #calendar { max-width: 900px; margin: 0 auto; }
         .modal {
             display: none;
             position: fixed;
@@ -171,32 +150,18 @@
             font-weight: bold;
             cursor: pointer;
         }
-        .close:hover {
-            color: black;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        input, textarea, select {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-        /* Footer */
+        .close:hover { color: black; }
+        form { display: flex; flex-direction: column; gap: 15px; }
+        input, textarea, select { padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 1em; }
         footer {
-            background-color: #228B22;
-            color: white;
+            background-color: #90EE90;
+            color: #006400;
             text-align: center;
             padding: 20px;
         }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
     <header>
         <h1>Talon's Full Service Lawn Care</h1>
         <nav>
@@ -208,15 +173,11 @@
             </ul>
         </nav>
     </header>
-
-    <!-- Hero Section -->
     <section id="hero">
-        <h2>Your Lawn, My Face?</h2>
+        <h2>Your Lawn, Our Passion</h2>
         <p>Professional lawn care services for a greener tomorrow.</p>
         <button class="openQuoteModal btn">Request a Free Quote</button>
     </section>
-
-    <!-- Services Section -->
     <section id="services">
         <h2>Our Services</h2>
         <div class="service-grid">
@@ -242,21 +203,15 @@
             </div>
         </div>
     </section>
-
-    <!-- Quote Section -->
     <section id="quote">
         <h2>Ready for a Quote?</h2>
         <button class="openQuoteBtn btn">Request Quote</button>
     </section>
-
-    <!-- Calendar Section -->
     <section id="calendar-section">
         <h2>Book Your Service Appointment</h2>
         <div id="calendar"></div>
         <button id="openAppointmentModal" class="btn" style="margin-top: 20px;">Book Selected Date</button>
     </section>
-
-    <!-- Quote Modal -->
     <div id="quoteModal" class="modal">
         <div class="modal-content">
             <span class="closeQuoteModal close">×</span>
@@ -270,8 +225,6 @@
             </form>
         </div>
     </div>
-
-    <!-- Appointment Modal -->
     <div id="appointmentModal" class="modal">
         <div class="modal-content">
             <span id="closeAppointmentModal" class="close">×</span>
@@ -291,16 +244,11 @@
             </form>
         </div>
     </div>
-
-    <!-- Footer -->
     <footer>
-        <p>© 2025 GreenThumb Lawn Care. Contact us at info@greenthumb.com | (555) 123-4567</p>
+        <p>© 2025 Talon's Full Service Lawn Care. Contact us at info@talonslawn.com | (555) 123-4567</p>
     </footer>
-
-    <!-- FullCalendar JS from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
     <script>
-        // Calendar Setup
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -318,64 +266,20 @@
             });
             calendar.render();
         });
-
-        // Modal Logic for Quote
         const quoteModal = document.getElementById('quoteModal');
         const openQuoteBtns = document.querySelectorAll('.openQuoteBtn, .openQuoteModal');
         const closeQuoteModal = document.querySelector('.closeQuoteModal');
-
-        openQuoteBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                quoteModal.style.display = 'flex';
-            });
-        });
-
-        closeQuoteModal.addEventListener('click', () => {
-            quoteModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === quoteModal) {
-                quoteModal.style.display = 'none';
-            }
-        });
-
-        // Form Submission (simulated)
-        document.getElementById('quoteForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Quote request submitted!');
-            quoteModal.style.display = 'none';
-        });
-
-        // Appointment Modal Logic
+        openQuoteBtns.forEach(btn => { btn.addEventListener('click', () => { quoteModal.style.display = 'flex'; }); });
+        closeQuoteModal.addEventListener('click', () => { quoteModal.style.display = 'none'; });
+        window.addEventListener('click', (e) => { if (e.target === quoteModal) { quoteModal.style.display = 'none'; } });
+        document.getElementById('quoteForm').addEventListener('submit', (e) => { e.preventDefault(); alert('Quote request submitted!'); quoteModal.style.display = 'none'; });
         const appointmentModal = document.getElementById('appointmentModal');
         const openAppointmentBtn = document.getElementById('openAppointmentModal');
         const closeAppointmentModal = document.getElementById('closeAppointmentModal');
-
-        openAppointmentBtn.addEventListener('click', () => {
-            if (document.getElementById('selected-date').value) {
-                appointmentModal.style.display = 'flex';
-            } else {
-                alert('Please select a date from the calendar first.');
-            }
-        });
-
-        closeAppointmentModal.addEventListener('click', () => {
-            appointmentModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === appointmentModal) {
-                appointmentModal.style.display = 'none';
-            }
-        });
-
-        // Form Submission (simulated)
-        document.getElementById('appointmentForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Appointment booked for ' + document.getElementById('selected-date').value);
-            appointmentModal.style.display = 'none';
-        });
+        openAppointmentBtn.addEventListener('click', () => { if (document.getElementById('selected-date').value) { appointmentModal.style.display = 'flex'; } else { alert('Please select a date from the calendar first.'); } });
+        closeAppointmentModal.addEventListener('click', () => { appointmentModal.style.display = 'none'; });
+        window.addEventListener('click', (e) => { if (e.target === appointmentModal) { appointmentModal.style.display = 'none'; } });
+        document.getElementById('appointmentForm').addEventListener('submit', (e) => { e.preventDefault(); alert('Appointment booked for ' + document.getElementById('selected-date').value); appointmentModal.style.display = 'none'; });
     </script>
 </body>
 </html>
