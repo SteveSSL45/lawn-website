@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talon's Full service Lawn Care- Full Service Lawn Maintenance</title>
+    <!-- FullCalendar CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.pexels.com/photos/4495792/pexels-photo-4495792.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1080&w=1920') no-repeat center/cover fixed;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        /* Header */
+        header {
+            background-color: #228B22; /* Forest Green */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #006400; /* Dark Green */
+        }
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/4495792/pexels-photo-4495792.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1080&w=1920') no-repeat center/cover;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        #hero h2 {
+            font-size: 3em;
+            margin: 0;
+        }
+        #hero p {
+            font-size: 1.5em;
+        }
+        .btn {
+            background-color: #228B22;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #006400;
+        }
+        /* Services Section */
+        #services {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent for readability */
+        }
+        #services h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .service-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+        .service-item i {
+            font-size: 3em;
+            color: #228B22;
+            margin-bottom: 10px;
+        }
+        .service-item h3 {
+            font-size: 1.8em;
+        }
+        /* Quote Section */
+        #quote {
+            padding: 50px 20px;
+            background-color: rgba(224, 247, 224, 0.9); /* Semi-transparent for readability */
+            text-align: center;
+        }
+        #quote h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+        /* Calendar Section */
+        #calendar-section {
+            padding: 50px 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent for readability */
+            text-align: center;
+        }
+        #calendar-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: black;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, textarea, select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        /* Footer */
+        footer {
+            background-color: #228B22;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Talon's Full Service Lawn Care</h1>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#quote">Get a Quote</a></li>
+                <li><a href="#calendar-section">Book Appointment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h2>Your Lawn, My Face?</h2>
+        <p>Professional lawn care services for a greener tomorrow.</p>
+        <button class="openQuoteModal btn">Request a Free Quote</button>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-item">
+                <i class="fas fa-cut"></i>
+                <h3>Lawn Mowing</h3>
+                <p>Regular mowing to keep your lawn neat and healthy.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-leaf"></i>
+                <h3>Fertilization</h3>
+                <p>Nutrient-rich treatments for vibrant grass.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-spray-can"></i>
+                <h3>Weed Control</h3>
+                <p>Effective solutions to eliminate weeds.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-tree"></i>
+                <h3>Tree & Shrub Care</h3>
+                <p>Pruning and care for your landscape plants.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section id="quote">
+        <h2>Ready for a Quote?</h2>
+        <button class="openQuoteBtn btn">Request Quote</button>
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="calendar-section">
+        <h2>Book Your Service Appointment</h2>
+        <div id="calendar"></div>
+        <button id="openAppointmentModal" class="btn" style="margin-top: 20px;">Book Selected Date</button>
+    </section>
+
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <span class="closeQuoteModal close">×</span>
+            <h3>Request a Quote</h3>
+            <form id="quoteForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit" class="btn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Appointment Modal -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span id="closeAppointmentModal" class="close">×</span>
+            <h3>Book Appointment</h3>
+            <form id="appointmentForm">
+                <input type="text" id="selected-date" readonly required>
+                <select id="service-type" required>
+                    <option value="">Select Service</option>
+                    <option value="mowing">Lawn Mowing</option>
+                    <option value="fertilization">Fertilization</option>
+                    <option value="weed-control">Weed Control</option>
+                    <option value="tree-shrub">Tree & Shrub Care</option>
+                </select>
+                <input type="text" placeholder="Your Name" required>
+                <input type="text" placeholder="Additional Notes">
+                <button type="submit" class="btn">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 GreenThumb Lawn Care. Contact us at info@greenthumb.com | (555) 123-4567</p>
+    </footer>
+
+    <!-- FullCalendar JS from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script>
+        // Calendar Setup
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                editable: true,
+                selectable: true,
+                events: [
+                    { title: 'Mowing Available', start: '2025-07-20' },
+                    { title: 'Fertilization Slot', start: '2025-07-22' }
+                ],
+                dateClick: function(info) {
+                    document.getElementById('selected-date').value = info.dateStr;
+                    document.getElementById('appointmentModal').style.display = 'flex';
+                }
+            });
+            calendar.render();
+        });
+
+        // Modal Logic for Quote
+        const quoteModal = document.getElementById('quoteModal');
+        const openQuoteBtns = document.querySelectorAll('.openQuoteBtn, .openQuoteModal');
+        const closeQuoteModal = document.querySelector('.closeQuoteModal');
+
+        openQuoteBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                quoteModal.style.display = 'flex';
+            });
+        });
+
+        closeQuoteModal.addEventListener('click', () => {
+            quoteModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === quoteModal) {
+                quoteModal.style.display = 'none';
+            }
+        });
+
+        // Form Submission (simulated)
+        document.getElementById('quoteForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Quote request submitted!');
+            quoteModal.style.display = 'none';
+        });
+
+        // Appointment Modal Logic
+        const appointmentModal = document.getElementById('appointmentModal');
+        const openAppointmentBtn = document.getElementById('openAppointmentModal');
+        const closeAppointmentModal = document.getElementById('closeAppointmentModal');
+
+        openAppointmentBtn.addEventListener('click', () => {
+            if (document.getElementById('selected-date').value) {
+                appointmentModal.style.display = 'flex';
+            } else {
+                alert('Please select a date from the calendar first.');
+            }
+        });
+
+        closeAppointmentModal.addEventListener('click', () => {
+            appointmentModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === appointmentModal) {
+                appointmentModal.style.display = 'none';
+            }
+        });
+
+        // Form Submission (simulated)
+        document.getElementById('appointmentForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Appointment booked for ' + document.getElementById('selected-date').value);
+            appointmentModal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
