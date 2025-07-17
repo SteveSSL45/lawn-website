@@ -41,16 +41,18 @@
   gap: 1rem;
 }
     .cta-button {
-      margin: 0.5rem;
-      padding: 1rem 2rem;
-      background-color: #66bb6a;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #66bb6a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex: 1 1 auto;
+  max-width: 180px;
+}
     .cta-button:hover {
       background-color: #558b2f;
     }
@@ -98,7 +100,25 @@
       font-size: 1.5rem;
       margin-bottom: 1rem;
     }
-  </style>
+  @media (max-width: 600px) {
+  .sticky-buttons {
+    flex-wrap: wrap;
+  }
+  .cta-button {
+    flex: 1 1 100%;
+    max-width: none;
+    font-size: 0.95rem;
+  }
+  .icon-title {
+    font-size: 1.2rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  form {
+    width: 90%;
+  }
+}
+</style>
 </head>
 <body>
   <div class="overlay">
@@ -107,7 +127,7 @@
 </header>
 <div class="sticky-buttons">
   <button class="cta-button" onclick="scrollToSection('quote')"><i class="fas fa-comment-dollar"></i> Request a Quote</button>
-  <button class="cta-button" onclick="scrollToSection('schedule')"><i class="fas fa-calendar-alt"></i> Schedule </button>
+  <button class="cta-button" onclick="scrollToSection('schedule')"><i class="fas fa-calendar-alt"></i> Book a Service</button>
   <button class="cta-button" onclick="scrollToSection('services')"><i class="fas fa-concierge-bell"></i> Services</button>
   <button class="cta-button" onclick="scrollToSection('portal')"><i class="fas fa-user-circle"></i> Client Portal</button>
 </div>
@@ -127,7 +147,7 @@
     </section>
 
     <section id="schedule" class="section">
-      <h2 class="icon-title"><i class="fas fa-calendar-check"></i> Request your Service Date</h2>
+      <h2 class="icon-title"><i class="fas fa-calendar-check"></i> Book a Service Date</h2>
       <div id="calendar"></div>
     </section>
   </div>
