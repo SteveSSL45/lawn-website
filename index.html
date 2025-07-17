@@ -41,17 +41,17 @@
   gap: 1rem;
 }
     .cta-button {
-  margin: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  margin: 0.25rem;
+  padding: 0.5rem 1rem;
   background-color: #66bb6a;
   color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
   flex: 1 1 auto;
-  max-width: 180px;
+  max-width: 160px;
 }
     .cta-button:hover {
       background-color: #558b2f;
@@ -103,7 +103,23 @@
   @media (max-width: 600px) {
   .sticky-buttons {
     flex-wrap: wrap;
+    justify-content: center;
   }
+  .cta-button {
+    flex: 1 1 48%;
+    margin: 0.25rem;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.75rem;
+  }
+  .icon-title {
+    font-size: 1.2rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  form {
+    width: 90%;
+  }
+}
   .cta-button {
     flex: 1 1 100%;
     max-width: none;
@@ -172,3 +188,4 @@
   </script>
 </body>
 </html>
+
