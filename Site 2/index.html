@@ -8,20 +8,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     html, body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #333;
-  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Lawn-striped.jpg/1280px-Lawn-striped.jpg') no-repeat center center fixed;
-  background-size: cover;
-}
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Green_grass_background.jpg/1600px-Green_grass_background.jpg') no-repeat center center fixed;
+      background-size: cover;
+
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
     .overlay {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(1px);
-  min-height: 100vh;
-  height: 100%;
-  padding: 1rem;
-}
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(4px);
+      min-height: 100vh;
+      height: 100%;
+    }
     .header {
   background-color: #2e7d32;
   color: white;
@@ -41,18 +41,16 @@
   gap: 1rem;
 }
     .cta-button {
-  margin: 0.25rem;
-  padding: 0.5rem 1rem;
-  background-color: #66bb6a;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  flex: 1 1 auto;
-  max-width: 160px;
-}
+      margin: 0.5rem;
+      padding: 1rem 2rem;
+      background-color: #66bb6a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
     .cta-button:hover {
       background-color: #558b2f;
     }
@@ -62,17 +60,17 @@
       margin: auto;
     }
     form {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(4px);
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-}
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(4px);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
     input, textarea, button {
       margin: 0.5rem 0;
       padding: 0.75rem;
@@ -84,14 +82,14 @@
       resize: vertical;
     }
     #calendar {
-  max-width: 100%;
-  margin: 2rem auto;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(4px);
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+      max-width: 100%;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(4px);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
     .icon-title {
       display: flex;
       align-items: center;
@@ -100,61 +98,22 @@
       font-size: 1.5rem;
       margin-bottom: 1rem;
     }
-  @media (max-width: 600px) {
-  .sticky-buttons {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .cta-button {
-    flex: 1 1 48%;
-    margin: 0.25rem;
-    font-size: 0.9rem;
-    padding: 0.4rem 0.75rem;
-  }
-  .icon-title {
-    font-size: 1.2rem;
-    flex-direction: column;
-    text-align: center;
-  }
-  form {
-    width: 90%;
-  }
-  .cta-button {
-    flex: 1 1 100%;
-    max-width: none;
-    font-size: 0.95rem;
-  }
-  .icon-title {
-    font-size: 1.2rem;
-    flex-direction: column;
-    text-align: center;
-  }
-  form {
-    width: 90%;
-  }
-}
-.background {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url('background.png') no-repeat center center;
-  background-size: cover;
-  z-index: -1;
-  opacity: 0.7;
-}
-</style>
+  </style>
 </head>
 <body>
-  <div class="background"></div>
   <div class="overlay">
     <header class="header">
   <h1><i class="fas fa-leaf"></i> Talons Lawn Care</h1>
 </header>
 <div class="sticky-buttons">
   <button class="cta-button" onclick="scrollToSection('quote')"><i class="fas fa-comment-dollar"></i> Request a Quote</button>
-  <button class="cta-button" onclick="scrollToSection('schedule')"><i class="fas fa-calendar-alt"></i> Book a Service</button>
+  <button class="cta-button" onclick="scrollToSection('schedule')"><i class="fas fa-calendar-alt"></i> Schedule </button>
   <button class="cta-button" onclick="scrollToSection('services')"><i class="fas fa-concierge-bell"></i> Services</button>
   <button class="cta-button" onclick="scrollToSection('portal')"><i class="fas fa-user-circle"></i> Client Portal</button>
 </div>
+
+
+</header>
 
     <section id="quote" class="section">
       <h2 class="icon-title"><i class="fas fa-file-signature"></i> Request a Free Quote</h2>
@@ -168,7 +127,7 @@
     </section>
 
     <section id="schedule" class="section">
-      <h2 class="icon-title"><i class="fas fa-calendar-check"></i> Book a Service Date</h2>
+      <h2 class="icon-title"><i class="fas fa-calendar-check"></i> Request your Service Date</h2>
       <div id="calendar"></div>
     </section>
   </div>
